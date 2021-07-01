@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "type": "object",
+  "properties": {
+    "source": {
+      "type": "string",
+      "description": "Source path to svg files. E.g. assets/icons/*.svg"
+    },
+    "destination": {
+      "type": "string",
+      "description": "Destination path to svg sprite file. E.g. assets/images/sprite.svg"
+    },
+    "shape": {
+      "type": "object",
+      "description": "Shape configuration param of svg-icon package. See https://github.com/svg-sprite/svg-sprite#configuration-basics"
+    },
+    "svg": {
+      "type": "object",
+      "description": "Svg configuration param of svg-icon package. See https://github.com/svg-sprite/svg-sprite#configuration-basics"
+    }
+  }
+}

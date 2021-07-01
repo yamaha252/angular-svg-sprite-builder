@@ -1,0 +1,9 @@
+{
+  "builders": {
+    "generate": {
+      "implementation": "./builder",
+      "schema": "./builder/schema.json",
+      "description": "Creates svg sprites"
+    }
+  }
+}

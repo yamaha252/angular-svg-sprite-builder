@@ -1,0 +1,25 @@
+{
+  "name": "@cbdev/angular-svg-sprite-builder",
+  "version": "0.0.1",
+  "description": "Angular builder for svg-sprite package",
+  "author": "yamaha252",
+  "license": "MIT",
+  "private": false,
+  "builders": "builders.json",
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@angular-devkit/architect": "^0.1201.0",
+    "@angular-devkit/core": "^12.1.0",
+    "glob": "^7.1.7",
+    "path": "^0.12.7",
+    "svg-sprite": "^1.5.0",
+    "ts-node": "^10.0.0",
+    "typescript": "^4.3.5"
+  },
+  "devDependencies": {
+    "@types/node": "^15.12.5",
+    "@types/svg-sprite": "^0.0.32"
+  }
+}
