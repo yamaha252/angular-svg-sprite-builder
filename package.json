@@ -1,6 +1,6 @@
 {
   "name": "@cbdev/angular-svg-sprite-builder",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Angular builder for svg-sprite package",
   "author": "yamaha252",
   "license": "MIT",
