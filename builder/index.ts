@@ -2,7 +2,7 @@ import {BuilderContext, BuilderOutput, createBuilder} from '@angular-devkit/arch
 import {JsonObject} from '@angular-devkit/core';
 import * as SVGSpriter from 'svg-sprite';
 import {mkdirSync, readFileSync, writeFileSync} from 'fs';
-import {basename, dirname} from 'path';
+import * as path from 'path';
 import {glob} from 'glob';
 
 interface Options extends JsonObject {
@@ -41,8 +41,8 @@ function compile(options: Options) {
         mode: {
             symbol: true
         },
-        ...options.shape ? {shape: options.shape} : {},
-        ...options.svg ? {shape: options.svg} : {},
+        shape: options?.shape || {},
+        svg: options?.svg || {},
     });
 
     return new Promise((resolve, reject) => {
@@ -58,7 +58,7 @@ function compile(options: Options) {
             }
 
             files.forEach(file => {
-                spriter.add(file, basename(file), readFileSync(file, {encoding: 'utf-8'}));
+                spriter.add(path.resolve(file), path.basename(file), readFileSync(file, {encoding: 'utf-8'}));
             });
 
             spriter.compile(function (error, result) {
@@ -69,7 +69,7 @@ function compile(options: Options) {
 
                 const file = result.symbol.sprite;
                 if (file) {
-                    mkdirSync(dirname(options.destination), {recursive: true});
+                    mkdirSync(path.dirname(options.destination), {recursive: true});
                     writeFileSync(options.destination, file.contents);
                     resolve(options.destination);
                     return;
